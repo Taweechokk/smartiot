@@ -358,7 +358,7 @@ namespace ESP8266_IoT {
         smartiot_token = userToken
         smartiot_topic = topic
         for (let i = 0; i < 3; i++) {
-            let ret = sendRequest(concatReqMsg(`/iot/iotTopic/getTopicStatus/${userToken}/${topic}`), '"code":200', 1000);
+            let ret = sendRequest(concatReqMsg(`/iot/iotTopic/getTopicStatus/${userToken}/${topic}`), '"code":200', 500);
             if (ret != null) {
                 smartiot_connected = true
             }
