@@ -72,7 +72,7 @@ namespace ESP8266_IoT {
         return null;
     }
 
-    export function sendRequest(command: string, key: string, wait: number = 100): string {
+    export function sendRequest(command: string, key: string, wait: number = 1000): string {
         serial.writeString(`${command}\u000D\u000A`)
         return waitForResponse(key, wait)
     }
@@ -357,7 +357,7 @@ namespace ESP8266_IoT {
     export function connectSmartiot(userToken: string, topic: string): void {
         smartiot_token = userToken
         smartiot_topic = topic
-        sendRequest(concatReqMsg(`/iot/iotTopic/getTopicStatus/${userToken}/${topic}`), '"code":200', 100);
+        sendRequest(concatReqMsg(`/iot/iotTopic/getTopicStatus/${userToken}/${topic}`), '"code":200', 1000);
     }
 
     /**
